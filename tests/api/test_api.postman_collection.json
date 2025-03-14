@@ -1,0 +1,9 @@
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Response has expected fields", function () {
+    const response = pm.response.json();
+    pm.expect(response.data).to.have.property("id");
+    pm.expect(response.data).to.have.property("email");
+});
