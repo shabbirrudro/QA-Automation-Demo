@@ -1,9 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 import time
 
 # Initialize the WebDriver
-driver = webdriver.Chrome()
+options = Options()
+options.add_argument("--headless")  # Run in headless mode
+options.add_argument("--disable-gpu")  # Disable GPU for headless mode
+driver = webdriver.Chrome(options=options)
 
 try:
     # Open the login page
@@ -27,3 +31,6 @@ try:
 finally:
     # Close the browser
     driver.quit()
+
+
+
